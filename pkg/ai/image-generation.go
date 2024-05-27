@@ -22,9 +22,10 @@ func GenerateImageFromPrompt(prompt string) (string, error) {
 	ctx := context.Background()
 	reqUrl := openai.ImageRequest{
 		Prompt:         prompt,
-		Size:           openai.CreateImageSize256x256,
+		Size:           openai.CreateImageSize1792x1024,
 		ResponseFormat: openai.CreateImageResponseFormatURL,
 		N:              1,
+		Model:          openai.CreateImageModelDallE3,
 	}
 
 	resp, err := client.CreateImage(ctx, reqUrl)
