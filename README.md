@@ -42,3 +42,6 @@ curl --location 'http://localhost:8080/api/generate/image' \
     "prompt": "A cat drinking milk from a saucer"
 }'
 ```
+In this example it generated the following image:
+![Image Response from API](response.png)
+
