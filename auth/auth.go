@@ -4,11 +4,19 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
 )
 
-var authToken = "test"
+func loadAuthToken() string {
+	token := os.Getenv("AUTH_TOKEN")
+	if token == "" {
+		panic("Authentication token not found. Please set the AUTH_TOKEN environment variable.")
+	}
+	return token
+}
 
 func validateToken(token string) bool {
+	authToken := loadAuthToken()
 	return token == fmt.Sprintf("Bearer %s", authToken)
 }
 
